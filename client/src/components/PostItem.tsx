@@ -26,7 +26,8 @@ const PostItem: FC<Props> = ({ post }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    console.log(post._id);
+    fetch(`http://localhost:3001/posts/${post._id}`, {
       method: "PUT",
       body: JSON.stringify({
         ...post,
@@ -57,7 +58,7 @@ const PostItem: FC<Props> = ({ post }) => {
   const handleDeletion = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+    fetch(`http://localhost:3001/posts/${post._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

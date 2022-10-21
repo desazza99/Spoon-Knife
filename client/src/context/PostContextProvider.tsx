@@ -21,12 +21,13 @@ const PostsContextProvider: FC<Props> = ({ children }) => {
   }, [notification]);
 
   const updatePosts = (phrase: string): void => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("http://localhost:3001/posts")
       .then((data) => {
         setNotification("loading");
         return data.json();
       })
       .then((posts) => {
+        console.log(posts);
         setPosts(posts);
         setNotification(phrase);
       });

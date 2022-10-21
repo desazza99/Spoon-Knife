@@ -17,9 +17,10 @@ const Form = () => {
   const handleSUbmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+    fetch("http://localhost:3001/posts", {
       method: "POST",
       body: JSON.stringify({
+        id: 1,
         title: title,
         body: body,
         userId: 1,
